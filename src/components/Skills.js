@@ -81,8 +81,8 @@ const Skills = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Title */}
-        <div className="text-center mb-16 relative">
-          <h2 className="text-5xl font-bold inline-block">
+        <div className="text-center mb-8 relative">
+          <h2 className="text-3xl font-bold inline-block mb-2">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
               Skills & Technologies
             </span>
