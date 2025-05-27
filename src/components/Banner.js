@@ -25,7 +25,7 @@ const Banner = () => {
   ];
 
   const menuItems = [
-    { name: 'Home', href: '#' },
+    { name: 'Home', href: '#home' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' }
   ];
@@ -42,10 +42,10 @@ const Banner = () => {
   return (
     <>
       {/* Sticky Navigation */}
-      <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300  ${
+      <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
         isScrolled 
           ? 'bg-[rgba(10,0,27,0.95)] backdrop-blur-md shadow-lg shadow-emerald-500/10' 
-          : 'bg-transparent'
+          : 'bg-[rgba(10,0,27,0.85)] backdrop-blur-sm'
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
@@ -62,7 +62,7 @@ const Banner = () => {
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden text-emerald-400 hover:text-emerald-300 transition-colors"
+              className="lg:hidden text-emerald-400 hover:text-emerald-300 transition-colors z-[101]"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {isMenuOpen ? (
@@ -115,28 +115,30 @@ const Banner = () => {
 
           {/* Mobile Menu */}
           <div 
-            className={`lg:hidden transition-all duration-300 ${
-              isMenuOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0'
-            } overflow-hidden`}
+            className={`lg:hidden fixed top-[72px] left-0 right-0 bg-[rgba(10,0,27,0.98)] backdrop-blur-md shadow-lg shadow-emerald-500/10 transition-all duration-300 ${
+              isMenuOpen 
+                ? 'opacity-100 translate-y-0' 
+                : 'opacity-0 -translate-y-4 pointer-events-none'
+            }`}
           >
-            <div className="py-4 space-y-4">
+            <div className="py-6 px-4 space-y-4">
               {menuItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
                   onClick={(e) => scrollToSection(e, item.href)}
-                  className="block text-emerald-400 hover:text-emerald-300 transition-colors px-4 py-2 rounded-lg hover:bg-emerald-400/10"
+                  className="block w-full text-emerald-400 hover:text-emerald-300 transition-all duration-300 px-4 py-3 rounded-lg hover:bg-emerald-500/10 border border-emerald-500/10 hover:border-emerald-500/30"
                 >
-                  {item.name}
+                  <span className="text-lg font-medium">{item.name}</span>
                 </a>
               ))}
               {/* Mobile Contact Button */}
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
-                className="block relative overflow-hidden rounded-lg"
+                className="block w-full relative overflow-hidden rounded-lg mt-4"
               >
-                <div className="relative px-4 py-2 bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-emerald-500/20 text-emerald-400 hover:text-emerald-300 transition-colors">
+                <div className="relative px-4 py-3 bg-gradient-to-r from-emerald-500/20 via-teal-500/20 to-emerald-500/20 text-emerald-400 hover:text-emerald-300 transition-all duration-300 text-lg font-medium border border-emerald-500/30 hover:border-emerald-500/50 rounded-lg text-center">
                   Contact
                 </div>
               </a>
@@ -146,7 +148,7 @@ const Banner = () => {
       </nav>
 
       {/* Main Banner Section */}
-      <section className="w-full min-h-[88vh] bg-[rgb(10,0,27)] flex flex-col lg:flex-row justify-center items-center p-8 relative overflow-hidden">
+      <section className="w-full min-h-[88vh] bg-[rgb(10,0,27)] flex flex-col lg:flex-row justify-center items-center p-8 relative overflow-hidden" id="home">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           {/* Twinkling stars */}
@@ -226,7 +228,7 @@ const Banner = () => {
           </div>
 
           {/* Tech words animation */}
-          <div className="relative h-[360px] w-[360px] flex items-center justify-center">
+          <div className="relative flex items-center justify-center">
             {/* Rotating text elements */}
             {techWords.map((word, index) => (
               <div
