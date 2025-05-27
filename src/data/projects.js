@@ -28,5 +28,15 @@ export const projects = [
     github: "https://github.com/yourusername/project3",
     live: "https://project3.com",
     featured: false
+  },
+  {
+    id: 4,
+    title: "Project Three",
+    description: "A full-stack application with modern features and clean design.",
+    image: "/images/project3.jpg",
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
+    github: "https://github.com/yourusername/project3",
+    live: "https://project3.com",
+    featured: false
   }
 ]; 
