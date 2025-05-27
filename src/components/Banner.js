@@ -51,7 +51,8 @@ const Banner = () => {
           <div className="flex justify-between items-center py-4">
             {/* Logo/Name */}
             <a 
-              href="#" 
+              href="#home" 
+              onClick={(e) => scrollToSection(e, '#home')}
               className={`text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400 transition-transform duration-300 ${
                 isScrolled ? 'scale-90' : ''
               }`}
