@@ -14,7 +14,6 @@ const Banner = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Array of tech words to animate around the image
   const techWords = [
     { text: "Full Stack", delay: "0s", direction: "1" },
     { text: "Developer", delay: "2s", direction: "-1" },
@@ -34,14 +33,20 @@ const Banner = () => {
     e.preventDefault();
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
     setIsMenuOpen(false);
   };
 
   return (
     <>
-      {/* Sticky Navigation */}
       <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-300 ${
         isScrolled 
           ? 'bg-[rgba(10,0,27,0.95)] backdrop-blur-md shadow-lg shadow-emerald-500/10' 
@@ -49,7 +54,6 @@ const Banner = () => {
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center py-4">
-            {/* Logo/Name */}
             <a 
               href="#home" 
               onClick={(e) => scrollToSection(e, '#home')}
@@ -60,7 +64,6 @@ const Banner = () => {
               BA
             </a>
 
-            {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden text-emerald-400 hover:text-emerald-300 transition-colors z-[101]"
@@ -74,7 +77,6 @@ const Banner = () => {
               </svg>
             </button>
 
-            {/* Desktop Menu */}
             <div className="hidden lg:flex items-center space-x-8">
               {menuItems.map((item) => (
                 <a
@@ -89,24 +91,19 @@ const Banner = () => {
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-400 to-teal-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               ))}
-              {/* Special Contact Button */}
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
                 className="relative group px-6 py-2 overflow-hidden rounded-full transition-all duration-300"
               >
-                {/* Animated gradient border */}
                 <div className="absolute inset-0 bg-gradient-to-r from-emerald-400 via-teal-400 to-emerald-400 opacity-70 group-hover:opacity-100 blur transition-opacity duration-300"></div>
                 
-                {/* Button background with gradient */}
                 <div className="absolute inset-[1.5px] bg-[rgb(10,0,27)] rounded-full transition-all duration-300 group-hover:bg-gradient-to-r from-emerald-600/20 via-teal-600/20 to-emerald-600/20"></div>
                 
-                {/* Shine effect */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-300">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
                 </div>
                 
-                {/* Text content */}
                 <span className="relative text-emerald-400 group-hover:text-emerald-300 font-medium">
                   Contact
                 </span>
@@ -114,7 +111,6 @@ const Banner = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
           <div 
             className={`lg:hidden fixed top-[72px] left-0 right-0 bg-[rgba(10,0,27,0.98)] backdrop-blur-md shadow-lg shadow-emerald-500/10 transition-all duration-300 ${
               isMenuOpen 
@@ -133,7 +129,6 @@ const Banner = () => {
                   <span className="text-lg font-medium">{item.name}</span>
                 </a>
               ))}
-              {/* Mobile Contact Button */}
               <a
                 href="#contact"
                 onClick={(e) => scrollToSection(e, '#contact')}
@@ -148,11 +143,8 @@ const Banner = () => {
         </div>
       </nav>
 
-      {/* Main Banner Section */}
       <section className="w-full min-h-[88vh] bg-[rgb(10,0,27)] flex flex-col lg:flex-row justify-center items-center p-8 relative overflow-hidden" id="home">
-        {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
-          {/* Twinkling stars */}
           {[...Array(100)].map((_, i) => (
             <div
               key={i}
@@ -166,7 +158,6 @@ const Banner = () => {
             />
           ))}
           
-          {/* Floating orbs */}
           {[...Array(5)].map((_, i) => (
             <div
               key={`orb-${i}`}
@@ -180,7 +171,6 @@ const Banner = () => {
             />
           ))}
 
-          {/* Grid lines */}
           <div className="absolute inset-0" 
                style={{
                  backgroundImage: `
@@ -197,7 +187,6 @@ const Banner = () => {
 
         <div className="w-full max-w-[1200px] mx-auto px-8 flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 mt-20 lg:mt-0">
           <div className="max-w-[800px]">
-            {/* Animated title */}
             <h1 className="text-6xl font-bold text-white mb-6 relative">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 animate-gradient">
                 Welcome.
@@ -205,7 +194,6 @@ const Banner = () => {
               <div className="absolute -bottom-2 left-0 w-24 h-1 bg-gradient-to-r from-emerald-500 to-green-500"></div>
             </h1>
 
-            {/* Animated text */}
             <div className="flex flex-wrap gap-2 text-xl lg:text-2xl text-white mb-8">
               <span className="opacity-0 translate-y-5 animate-[fadeInUp_0.5s_forwards] [animation-delay:0.1s]">My</span>
               <span className="opacity-0 translate-y-5 animate-[fadeInUp_0.5s_forwards] [animation-delay:0.2s]">name</span>
@@ -218,7 +206,6 @@ const Banner = () => {
               <span className="opacity-0 translate-y-5 animate-[fadeInUp_0.5s_forwards] [animation-delay:0.9s]">developer</span>
             </div>
 
-            {/* Description with glowing effect */}
             <div className="text-lg text-gray-300 relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-lg blur opacity-0 group-hover:opacity-10 transition duration-500"></div>
               <p className="relative">
@@ -226,11 +213,59 @@ const Banner = () => {
                 Skilled at solving complex challenges and committed to delivering innovative, impactful web solutions.
               </p>
             </div>
+
+            <div className="mt-8 flex gap-4">
+              <a
+                href="#projects"
+                onClick={(e) => scrollToSection(e, '#projects')}
+                className="group relative inline-flex items-center gap-2 px-6 py-3 overflow-hidden rounded-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 opacity-70 group-hover:opacity-100 transition-opacity duration-300 animate-shimmer"></div>
+                
+                <div className="absolute inset-[1.5px] bg-[rgb(10,0,27)] rounded-full transition-all duration-300 group-hover:bg-[rgb(15,5,37)]"></div>
+                
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 duration-300">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-500/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                </div>
+                
+                <span className="relative font-semibold text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300">
+                  View My Work
+                </span>
+                <svg 
+                  className="relative w-5 h-5 text-emerald-400 group-hover:text-emerald-300 transition-all duration-300 group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+
+              <a
+                href="#contact"
+                onClick={(e) => scrollToSection(e, '#contact')}
+                className="group relative inline-flex items-center gap-2 px-6 py-3 overflow-hidden rounded-full"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-500/50 via-teal-500/50 to-emerald-500/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur"></div>
+                
+                <div className="absolute inset-[1.5px] bg-[rgb(10,0,27)] rounded-full transition-all duration-300 group-hover:bg-[rgb(15,5,37)]"></div>
+                
+                <span className="relative font-semibold text-emerald-400 group-hover:text-emerald-300 transition-colors duration-300">
+                  Contact Me
+                </span>
+                <svg 
+                  className="relative w-5 h-5 text-emerald-400 group-hover:text-emerald-300 transition-all duration-300 group-hover:translate-x-1" 
+                  fill="none" 
+                  stroke="currentColor" 
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </a>
+            </div>
           </div>
 
-          {/* Tech words animation */}
           <div className="relative flex items-center justify-center">
-            {/* Rotating text elements */}
             {techWords.map((word, index) => (
               <div
                 key={word.text}
@@ -255,33 +290,25 @@ const Banner = () => {
             ))}
           </div>
 
-          {/* Profile image with enhanced effects */}
           <div className="relative h-[360px] w-[360px] flex items-center justify-center">
-            {/* Rotating border effect */}
             <div className="absolute inset-0 bg-gradient-conic from-emerald-500 via-green-500 to-teal-500 rounded-full animate-spin-slow opacity-75 blur-md"></div>
             
-            {/* Inner glow effects */}
             <div className="absolute inset-4 bg-[rgb(15,5,37)] rounded-full">
-              {/* Additional inner glow layers */}
               <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 to-green-500/20 rounded-full blur-md"></div>
               <div className="absolute inset-0 bg-gradient-to-tl from-teal-500/20 to-emerald-500/20 rounded-full blur-md"></div>
             </div>
             <div className="absolute inset-0 bg-gradient-to-br from-[rgba(34,197,94,0.5)] to-transparent rounded-full opacity-30 blur-xl animate-pulse"></div>
             
-            {/* Image container */}
             <div className="relative w-[320px] h-[320px] rounded-full overflow-hidden border-4 border-[rgba(34,197,94,0.3)] animate-float">
-              {/* Additional glow effects */}
               <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/10 to-green-500/10 mix-blend-overlay"></div>
               <div className="absolute inset-0 bg-gradient-radial from-transparent to-[rgb(15,5,37)]/50"></div>
               
-              {/* Image */}
               <img 
                 src={heroImage} 
                 alt="Blerta Aliu" 
                 className="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500"
               />
               
-              {/* Overlay shine effect */}
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent"></div>
             </div>
           </div>
