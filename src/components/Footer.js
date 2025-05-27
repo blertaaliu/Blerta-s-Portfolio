@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="max-w-4xl mx-auto">
           {/* Section Title */}
           <div className="text-center mb-12 relative">
-            <h2 className="text-5xl font-bold inline-block">
+            <h2 className="text-3xl font-bold inline-block">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-teal-400">
                 Get In Touch
               </span>
