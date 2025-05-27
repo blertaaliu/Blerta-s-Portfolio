@@ -1,42 +1,45 @@
 export const projects = [
   {
     id: 1,
-    title: "Project One",
-    description: "A brief description of the project and its key features.",
-    image: "/images/project1.jpg",
-    technologies: ["React", "Node.js", "MongoDB"],
-    github: "https://github.com/yourusername/project1",
-    live: "https://project1.com",
+    title: "House Price Prediction",
+    description: "A machine learning project that predicts the price of a house based on its features.",
+    image: require('../images/projects/HousePricePrediction.png'),
+    technologies: ["Django", "Tailwind CSS", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/blertaaliu/HousePricePrediction",
     featured: true
   },
   {
     id: 2,
-    title: "Project Two",
-    description: "Another amazing project showcasing different skills and technologies.",
-    image: "/images/project2.jpg",
-    technologies: ["Vue.js", "Express", "PostgreSQL"],
-    github: "https://github.com/yourusername/project2",
-    live: "https://project2.com",
+    title: "Find jobs platform",
+    description: "A platform that allows users to find jobs and connect with employers.",
+    image: require('../images/projects/starlancer.png'),
+    technologies: ["Wordpress", "PHP", "SCSS", "JavaScript", "Tailwind CSS"],
     featured: true
   },
   {
     id: 3,
-    title: "Project Three",
-    description: "A full-stack application with modern features and clean design.",
-    image: "/images/project3.jpg",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/yourusername/project3",
-    live: "https://project3.com",
+    title: "E-commerce website",
+    description: "A website that allows users to buy and sell products.",
+    image: require('../images/projects/blejtech.png'),
+    technologies: [".Net", "React", "Node.js", "MongoDB"],
     featured: false
   },
   {
     id: 4,
-    title: "Project Three",
-    description: "A full-stack application with modern features and clean design.",
-    image: "/images/project3.jpg",
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/yourusername/project3",
-    live: "https://project3.com",
+    title: "E-commerce website",
+    description: "A website that allows users to buy and sell products.",
+    image: require('../images/projects/ecommerce.jpg'),
+    technologies: ["PHP", "HTML", "CSS", "JavaScript"],
+    github: "https://github.com/blertaaliu6/WEB-Project",
+    featured: false
+  },
+  {
+    id: 5,
+    title: "School Digital Diary",
+    description: "A digital tool to track school activities, homework, and announcements.",
+    image: require('../images/projects/digitalDiary.JPG'),
+    technologies: [".Net", "React", "Node.js", "MySQL", "Typescript"],
+    github: "https://github.com/blertaaliu6/LABCourse-Project",
     featured: false
   }
 ]; 
