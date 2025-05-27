@@ -62,7 +62,7 @@ const Footer = () => {
                 </div>
                 <h3 className="text-xl font-semibold mb-2 text-emerald-400">Email</h3>
                 <p className="text-gray-300 hover:text-emerald-300 transition-colors">
-                  <a href="mailto:blertaaliu6@gmail.com">blertaaliu6@gmail.com</a>
+                  <a href="mailto:aliublerta06@gmail.com">aliublerta06@gmail.com</a>
                 </p>
               </div>
             </div>
