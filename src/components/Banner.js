@@ -185,7 +185,7 @@ const Banner = () => {
           />
         </div>
 
-        <div className="w-full max-w-[1200px] mx-auto px-8 flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 mt-20 lg:mt-0">
+        <div className="w-full max-w-[1200px] mx-auto md:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 relative z-10 mt-20 lg:mt-0">
           <div className="max-w-[800px]">
             <h1 className="text-6xl font-bold text-white mb-6 relative">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-green-400 to-teal-400 animate-gradient">
